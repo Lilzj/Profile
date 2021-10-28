@@ -1,15 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Profile.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Profile.Data
 {
-    public class ProfileContext : IdentityDbContext
+    public class ProfileContext : DbContext
     {
 
+        public ProfileContext(DbContextOptions<ProfileContext> options) : base(options)
+        {
+
+        }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Document> Documents { get; set; }
     }
 }

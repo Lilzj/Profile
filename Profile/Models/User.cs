@@ -1,12 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Profile.Models
 {
-    public class User
+    public class User : IdentityUser
     {
+        public string UserId { get; set; } = new Guid().ToString();
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName
@@ -16,5 +16,15 @@ namespace Profile.Models
                 return FirstName + " " + LastName;
             }
         }
+        public DateTime DateCreated { get; set; } = DateTime.Now;
+        public List<Document> Documents { get; set; }
+
+
+        public User()
+        {
+            Documents = new List<Document>();
+        }
     }
+
+
 }
