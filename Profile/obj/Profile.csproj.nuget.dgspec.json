@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\lilzj\\source\\repos\\Profile\\Profile\\Profile.csproj",
-        "projectName": "Profile",
+        "projectName": "ProfileManager",
         "projectPath": "C:\\Users\\lilzj\\source\\repos\\Profile\\Profile\\Profile.csproj",
         "packagesPath": "C:\\Users\\lilzj\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\lilzj\\source\\repos\\Profile\\Profile\\obj\\",
@@ -44,9 +44,13 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[5.0.11, )"
+              "version": "[8.1.1, )"
+            },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

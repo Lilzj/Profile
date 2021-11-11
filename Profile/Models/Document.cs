@@ -1,11 +1,12 @@
 ﻿using System;
 
-namespace Profile.Models
+namespace ProfileManager.Models
 {
     public class Document
     {
-        public User UserId { get; set; }
-        public int DocumentID { get; set; }
+        public User User { get; set; }
+        public string UserId { get; set; }
+        public string DocumentId { get; set; } = Guid.NewGuid().ToString();
         public string DocumentName { get; set; }
         public string DocumentURL { get; set; }
         public string PublicId { get; set; }

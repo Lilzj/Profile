@@ -1,15 +1,20 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProfileManager.Common;
+using ProfileManager.Data;
+using ProfileManager.Mapping;
+using ProfileManager.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Profile
+namespace ProfileManager
 {
     public class Startup
     {
@@ -24,6 +29,19 @@ namespace Profile
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<ProfileContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection"));
+            });
+
+            services.Configure<MailSettings>(Configuration.GetSection("MailSettings"));
+            services.AddTransient<IMailService, MailService>();
+
+            services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IFileUpload, FileUpload>();
+
+            services.AddAutoMapper(typeof(map));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

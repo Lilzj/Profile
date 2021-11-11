@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Profile.Models
+namespace ProfileManager.Models
 {
-    public class User : IdentityUser
+    public class User
     {
-        public string UserId { get; set; } = new Guid().ToString();
+        public string UserId { get; set; } = Guid.NewGuid().ToString();
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
+        public int Phone { get; set; }
+        public string TransactionNumber { get; set; }
         public string FullName
         {
             get
@@ -24,6 +26,7 @@ namespace Profile.Models
         {
             Documents = new List<Document>();
         }
+
     }
 
 

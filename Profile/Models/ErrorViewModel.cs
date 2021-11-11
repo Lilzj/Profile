@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Profile.Models
+namespace ProfileManager.Models
 {
     public class ErrorViewModel
     {

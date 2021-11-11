@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Profile.Models;
+using ProfileManager.Models;
 
-namespace Profile.Data
+namespace ProfileManager.Data
 {
     public class ProfileContext : DbContext
     {
